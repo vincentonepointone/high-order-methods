@@ -69,19 +69,64 @@ console.log(decadeCompanies);
 
 //The map array method creates a new array
 
-const  testMap = companies.map(company => `the cool companies are ${(company.name !== "twitter") ? return company.name}`);
+const  testMap = companies.map((company) => {
+return company.name
+});
 
-console.log(testMap);
-
-
-
-
-
-
-
-
+const agesSquare = ages.map((ages) => {
+ return Math.sqrt(ages);
+}).map((ages) => {
+ return ages * 2;
+})
 
 
+//Sort sort companies by start year
+/*
+const sortedCompanies = companies.sort((a, b) => {
+ if(a.start > b.start) {
+return 1
+} else {
+return -1
+}
+});
+*/
+
+const sortedCompanies = companies.sort((a, b) => a.start > b.start ? 1 :-1);
+console.log(sortedCompanies);
+
+//sort  nums low to high
+
+const sortedAges = ages.sort((a, b) => a - b)
+console.log(sortedAges)
+
+let ageSum = 0;
+
+for(let i =0; i < ages.length; i++) {
+ageSum += ages[i];
+};
+
+console.log(ageSum);
+
+const ageSum2 = ages.reduce((total, age)=> total + age, 0); //alternately return the value within culry braces(code block);
+
+console.log(ageSum2);
+
+const totalYears = companies.reduce((total, company) => {
+return total + (company.end - company.start)
+},0);
+
+
+const totalYears2 = companies.reduce((total, company) => total + (company.end - company.start)
+,0);
+console.log(totalYears2);
+
+const combined = ages
+.map(age => age * 2)
+.filter(age => age >= 40)
+.sort((a, b) => a - b)
+.reduce((a, b) => a + b)
+
+console.log(combined)
 
 
 
